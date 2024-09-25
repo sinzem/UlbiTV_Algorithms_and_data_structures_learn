@@ -23,4 +23,4 @@ function bubbleSort(array) {
 
 console.log('length: ' + arr.length);
 console.log(bubbleSort(arr));
-console.log('count: ' + count);
+console.log('count: ' + count); /* (cчитается как О(n*n)) */
