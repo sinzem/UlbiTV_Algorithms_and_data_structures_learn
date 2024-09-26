@@ -28,3 +28,26 @@ function binarySearch(array, item) { /* (передаем массив и зна
 
 console.log(binarySearch(array, 15));
 console.log("Количество операций - " + count); /* (при данном методе поиска максимальное число операций выдаст 4(массив из 16 элементов) - но время выполнения большеБ чем у линейного поиска, так как сами операции сложнее, соответственно, на коротких массивах нет смысла применять) */
+
+// -------------------------------------------------------
+
+/* (бинарный поиск с помощью рекурсии(только для отсортированных массивов)) */
+const arrayRec = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+let countRec = 0;
+/* (находим средину массива, если элемент не соответствует искомому, запускаем эту же функцию на половине массива, в которой находится искомое число) */
+function recursiveBinarySearch(array, item, start, end) {
+    let middle = Math.floor((start + end) / 2);
+    countRec += 1;
+    if (item === array[middle]) {
+        return middle;
+    }
+    if (item < array[middle]) {
+        return recursiveBinarySearch(array, item, start, middle - 1);
+    } else {
+        return recursiveBinarySearch(array, item, middle + 1, end);
+    }
+}
+
+console.log(recursiveBinarySearch(arrayRec, 12, 0, arrayRec.length));
+console.log("count: " + countRec);
