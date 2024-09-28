@@ -74,3 +74,4 @@ const iteration = (tree) => {
 }
 
 console.log(iteration(tree));
+
