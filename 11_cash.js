@@ -34,3 +34,4 @@ cashFactorial(5);
 cashFactorial(6);
 cashFactorial(6);
 cashFactorial(4);
+cashFactorial(4);
