@@ -1,14 +1,17 @@
+/* (Бинарное дерево - по сути как связанный список, только сортируем при создании - каждая нода имеет две дочерние ноды - left и right, в левую скидываем значения меньше корневой, в правую - больше) */
+
 class BinaryTree {
+
     constructor() {
-        this.root = null;
+        this.root = null; /* (корневая нода) */
     }
 
-    add(value) {
-        if (!this.root) {
+    add(value) { /* (функция добавления нод) */
+        if (!this.root) { /* (если корневой еще нет - создаем) */
             this.root = new TreeNode(value);
         } else {
             let node = this.root;
-            let newNode = new TreeNode(value);
+            let newNode = new TreeNode(value); /* (создаем новую ноду, если она меньше корневого значения - перебираем левую ветку, пока не найдем пустое значение, в него и записываем, если больше - идем по правой ветке) */
             while (node) {
                 if (value > node.value) {
                     if (!node.right) {
@@ -30,7 +33,7 @@ class BinaryTree {
         }
     }
 
-    print(root = this.root) {
+    print(root = this.root) { /* (функция для просмотра значений дерева) */
         if (!root) {
             return true;
         }
@@ -51,16 +54,17 @@ class TreeNode {
 const tree = new BinaryTree();
 
 tree.add(5);
-tree.add(2);
+tree.add(4);
 tree.add(6);
 tree.add(2);
-tree.add(1);
+tree.add(2);
 tree.add(7);
 tree.add(5);
 tree.add(5);
 tree.add(9);
 tree.add(5);
 tree.add(3);
+tree.add(4);
 
 tree.print();
 
